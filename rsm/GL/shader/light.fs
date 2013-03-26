@@ -1,4 +1,4 @@
-// ƒtƒ‰ƒOƒƒ“ƒgƒVƒF[ƒ_
+// ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã‚·ã‚§ãƒ¼ãƒ€
 
 uniform mat4 uLightProj;
 uniform mat4 uLightView;
@@ -9,7 +9,7 @@ varying vec4 vColor;
 
 /*
 void main() {
-	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ƒ‰ƒCƒg‹óŠÔ‚Å‚ÌˆÊ’u
+	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ãƒ©ã‚¤ãƒˆç©ºé–“ã§ã®ä½ç½®
 	gl_FragColor = vec4(vec3(-lightPosition.z / 100.0), 0.0);
 }*/
 

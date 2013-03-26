@@ -1,4 +1,4 @@
-// ƒtƒ‰ƒOƒƒ“ƒgƒVƒF[ƒ_
+// ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã‚·ã‚§ãƒ¼ãƒ€
 uniform vec4 uAmbient;
 uniform vec4 uLightIntensity;
 
@@ -33,21 +33,21 @@ float RND_1d(vec2 x)
 
 void main() {
 	vec3 worldNormal = normalize(vWorldNormal);
-	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ƒ‰ƒCƒg‹óŠÔ‚Å‚ÌˆÊ’u
+	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ãƒ©ã‚¤ãƒˆç©ºé–“ã§ã®ä½ç½®
 	vec3 lightPositionNoramalized = normalize(lightPosition);
 
-	mat4 lightNormalMatrix = transpose(inverse(uLightView)); // CPUã‚Å‹‚ß‚Ä‚¨‚«‚Ü‚µ‚å‚¤
+	mat4 lightNormalMatrix = transpose(inverse(uLightView)); // CPUä¸Šã§æ±‚ã‚ã¦ãŠãã¾ã—ã‚‡ã†
 	vec3 lightSurfaceNormal = (lightNormalMatrix * vec4(worldNormal, 1.0)).xyz;
 
 	vec3 lambert = max(0.0, dot(lightSurfaceNormal, vec3(0, 0, 1)));
 
-	// ‰e
-	float depth1 = clamp(-lightPosition.z / 100.0, 0.0, 1.0); // ƒ‰ƒCƒg‚©‚ç‚Ì‹——£‚ğ‹‚ß‚é
-	vec4 lightDevice = uLightProj * uLightView * vWorldPosition; // ƒ‰ƒCƒg‚Ö‚ÌË‰e‚µ‚½Œ‹‰Ê
+	// å½±
+	float depth1 = clamp(-lightPosition.z / 100.0, 0.0, 1.0); // ãƒ©ã‚¤ãƒˆã‹ã‚‰ã®è·é›¢ã‚’æ±‚ã‚ã‚‹
+	vec4 lightDevice = uLightProj * uLightView * vWorldPosition; // ãƒ©ã‚¤ãƒˆã¸ã®å°„å½±ã—ãŸçµæœ
 	vec2 lightDeviceNormalized = lightDevice.xy / lightDevice.w;
 	vec2 lightUV = (lightDeviceNormalized.xy / 2.0) + vec2(0.5, 0.5);
 
-	// ‚â‚Î‚¢
+	// ã‚„ã°ã„
 	
 	vec4 indc;
 	float rm = 0.1;

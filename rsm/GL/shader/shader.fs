@@ -1,4 +1,4 @@
-// ƒtƒ‰ƒOƒƒ“ƒgƒVƒF[ƒ_
+// ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã‚·ã‚§ãƒ¼ãƒ€
 uniform vec2 resolution;
 
 uniform vec4 uAmbient;
@@ -73,21 +73,21 @@ float chebyshevUpperBound(vec2 uv, float distance)
 
 void main() {
 	vec3 worldNormal = normalize(vWorldNormal);
-	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ƒ‰ƒCƒg‹óŠÔ‚Å‚ÌˆÊ’u
+	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ãƒ©ã‚¤ãƒˆç©ºé–“ã§ã®ä½ç½®
 	vec3 lightPositionNoramalized = normalize(lightPosition);
 
 	vec3 lightSurfaceNormal = (uLightNormalMatrix * vec4(worldNormal, 1.0)).xyz;
 
 	vec3 lambert = max(0.0, dot(lightSurfaceNormal, vec3(0, 0, 1)));
 
-	// ‰e
+	// å½±
 	float bias = 0.0004;
-	float depth1 = clamp(-lightPosition.z / 100.0, 0.0, 1.0); // ƒ‰ƒCƒg‚©‚ç‚Ì‹——£‚ğ‹‚ß‚é
-	vec4 lightDevice = uLightProj * uLightView * vWorldPosition; // ƒ‰ƒCƒg‚Ö‚ÌË‰e‚µ‚½Œ‹‰Ê
+	float depth1 = clamp(-lightPosition.z / 100.0, 0.0, 1.0); // ãƒ©ã‚¤ãƒˆã‹ã‚‰ã®è·é›¢ã‚’æ±‚ã‚ã‚‹
+	vec4 lightDevice = uLightProj * uLightView * vWorldPosition; // ãƒ©ã‚¤ãƒˆã¸ã®å°„å½±ã—ãŸçµæœ
 	vec2 lightDeviceNormalized = lightDevice.xy / lightDevice.w;
 	vec2 lightUV = (lightDeviceNormalized.xy / 2.0) + vec2(0.5, 0.5);
 
-	// •’Ê‚ÌShadowMap
+	// æ™®é€šã®ShadowMap
 
 	float depth2 = texture2D(shadowMap, lightUV).x 	+ bias;
 	float shadow = 0.0;

@@ -21,7 +21,7 @@ void getErrorLog(GLuint shader, std::set<int>* errorLines = NULL)
 //		Logger::Instance()->OutputString("Compile Status: " + std::string(infoLog));
 		std::cerr << "Compile Status: " + std::string(infoLog) << std::endl;
 
-		// “K“–‚È‰ğÍ
+		// é©å½“ãªè§£æ
 		if (errorLines != NULL) {
 			std::string tmpStr;
 			for (int i = 0; i <  bufSize; i ++) {
@@ -37,7 +37,7 @@ void getErrorLog(GLuint shader, std::set<int>* errorLines = NULL)
 								inNum = false;
 								numcnt ++;
 
-								// “ñ”Ô–Ú‚Ì”š
+								// äºŒç•ªç›®ã®æ•°å­—
 								if (numcnt == 2) {
 									errorLines->insert(num);
 								}
@@ -107,7 +107,7 @@ GLuint LinkShader(GLuint vsh, GLuint fsh)
 		program = glCreateProgram();
 		glAttachShader(program, vsh);
 		glAttachShader(program, fsh);
-		// ƒŠƒ“ƒN
+		// ãƒªãƒ³ã‚¯
 		glLinkProgram(program);
 		GLint status;
 		glGetProgramiv(program, GL_LINK_STATUS, &status);
@@ -176,7 +176,7 @@ GLuint Shader::Compile(const std::string& fsshader, const std::string& vsshader)
 	} else
 		return 0;
 
-	// V‚µ‚­ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€ƒZƒbƒg‚³‚ê‚½‚ç‚±‚±‚É‚­‚é
+	// æ–°ã—ãã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚»ãƒƒãƒˆã•ã‚ŒãŸã‚‰ã“ã“ã«ãã‚‹
 	return shaderProgram;
 }
 

@@ -1,4 +1,4 @@
-// í∏ì_ÉVÉFÅ[É_
+// È†ÇÁÇπ„Ç∑„Çß„Éº„ÉÄ
 
 void main() {
 	gl_Position = ftransform();

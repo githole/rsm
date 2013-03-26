@@ -1,4 +1,4 @@
-// ƒtƒ‰ƒOƒƒ“ƒgƒVƒF[ƒ_
+// ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã‚·ã‚§ãƒ¼ãƒ€
 uniform vec4 uAmbient;
 uniform vec4 uLightIntensity;
 
@@ -15,7 +15,7 @@ varying vec4 vColor;
 
 void main() {
 	vec3 worldNormal = normalize(vWorldNormal);
-	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ƒ‰ƒCƒg‹óŠÔ‚Å‚ÌˆÊ’u
+	vec3 lightPosition = (uLightView * vWorldPosition).xyz; // ãƒ©ã‚¤ãƒˆç©ºé–“ã§ã®ä½ç½®
 	vec3 lightPositionNoramalized = normalize(lightPosition);
 
 	vec3 lightSurfaceNormal = (uLightNormalMatrix * vec4(worldNormal, 1.0)).xyz;

@@ -1,4 +1,4 @@
-// í∏ì_ÉVÉFÅ[É_
+// È†ÇÁÇπ„Ç∑„Çß„Éº„ÉÄ
 varying vec4 vWorldPosition;
 varying vec3 vWorldNormal;
 varying vec4 vColor;

@@ -129,19 +129,19 @@ int Initialize(const int width, const int height, const int SDLflags) {
 	// shader
 	CompileShader();
 
-	// ƒVƒƒƒhƒEƒ}ƒbƒv
+	// ã‚·ãƒ£ãƒ‰ã‚¦ãƒžãƒƒãƒ—
 	lightRT = new RenderTarget(ShadowMapSize, GL_CLAMP_TO_BORDER);
 
-	// ƒJƒƒ‰ƒeƒNƒXƒ`ƒƒ
+	// ã‚«ãƒ¡ãƒ©ãƒ†ã‚¯ã‚¹ãƒãƒ£
 	cameraRT = new RenderTarget(CameraTexSize, GL_CLAMP_TO_EDGE, GL_LINEAR, GL_RGBA, GL_UNSIGNED_BYTE);
 	
 	// VPL
 	vplRT = new RenderTarget(vplTexSize, GL_CLAMP_TO_EDGE, GL_NEAREST);
 	
-	// VPL–@ü
+	// VPLæ³•ç·š
 	vplNormalRT = new RenderTarget(vplTexSize, GL_CLAMP_TO_EDGE, GL_NEAREST);
 	
-	// VPLˆÊ’u
+	// VPLä½ç½®
 	vplPosRT = new RenderTarget(vplTexSize, GL_CLAMP_TO_EDGE, GL_NEAREST);
 
 	// GI
@@ -185,12 +185,12 @@ void SetMatrix(Shader& s) {
 
 
 void DrawObjects(Shader &s) {
-	// •½–Ê•`‰æ
+	// å¹³é¢æç”»
 	s.SetUniformMatrix4x4("uModel", Matrix().m);
 	glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
 	DrawPlane(20.0f);
 
-	// —§•û‘Ì
+	// ç«‹æ–¹ä½“
 	// ModelMatrix
 	s.SetUniformMatrix4x4("uModel", Matrix().m);
 	glColor4f(1, 0.4f, 0.5f, 1.0f);
@@ -248,7 +248,7 @@ void RenderObject() {
 
 	shader.Unbind();
 
-	// ƒeƒNƒXƒ`ƒƒ•`‰æ
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 	const float aspect = (float)windowWidth / windowHeight;
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, lightRT->Texture());
@@ -365,7 +365,7 @@ void BlurGI(RenderTarget *rt) {
 
 	blurYShader.Bind();
 	blurYShader.SetUniform("resolution", (float)blurRT->Size(), (float)blurRT->Size());
-	// ƒeƒNƒXƒ`ƒƒ•`‰æ
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, rt->Texture());
 	blurYShader.SetUniform("texture", (int)0);
@@ -378,7 +378,7 @@ void BlurGI(RenderTarget *rt) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	blurXShader.Bind();
 	blurXShader.SetUniform("resolution", (float)rt->Size(), (float)rt->Size());
-	// ƒeƒNƒXƒ`ƒƒ•`‰æ
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, blurRT->Texture());
 	blurXShader.SetUniform("texture", (int)0);
@@ -405,7 +405,7 @@ int Render() {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	postShader.Bind();
-	// ƒeƒNƒXƒ`ƒƒ•`‰æ
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, cameraRT->Texture());
 	postShader.SetUniform("texture", (int)0);

@@ -1,4 +1,4 @@
-// ƒtƒ‰ƒOƒƒ“ƒgƒVƒF[ƒ_
+// ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆã‚·ã‚§ãƒ¼ãƒ€
 uniform vec4 uAmbient;
 uniform vec4 uLightIntensity;
 
