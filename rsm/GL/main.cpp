@@ -42,15 +42,15 @@ static int windowWidth = 1280;
 static int windowHeight = 720;
 
 void CompileShader() {
-	shader.CompileFromFile("shader.fs", "shader.vs");
-	lightShader.CompileFromFile("light.fs", "light.vs");
-	postShader.CompileFromFile("post.fs", "post.vs");
-	vplShader.CompileFromFile("vpl.fs", "vpl.vs");
-	vpl_normalShader.CompileFromFile("vpl_normal.fs", "vpl_normal.vs");
-	vpl_posShader.CompileFromFile("vpl_pos.fs", "vpl_pos.vs");
-	giShader.CompileFromFile("gi.fs", "gi.vs");
-	blurXShader.CompileFromFile("blurx.fs", "blur.vs");
-	blurYShader.CompileFromFile("blury.fs", "blur.vs");
+	shader.CompileFromFile("./shader/shader.fs", "./shader/shader.vs");
+	lightShader.CompileFromFile("./shader/light.fs", "./shader/light.vs");
+	postShader.CompileFromFile("./shader/post.fs", "./shader/post.vs");
+	vplShader.CompileFromFile("./shader/vpl.fs", "./shader/vpl.vs");
+	vpl_normalShader.CompileFromFile("./shader/vpl_normal.fs", "./shader/vpl_normal.vs");
+	vpl_posShader.CompileFromFile("./shader/vpl_pos.fs", "./shader/vpl_pos.vs");
+	giShader.CompileFromFile("./shader/gi.fs", "./shader/gi.vs");
+	blurXShader.CompileFromFile("./shader/blurx.fs", "./shader/blur.vs");
+	blurYShader.CompileFromFile("./shader/blury.fs", "./shader/blur.vs");
 }
 
 int ProcessSDLEvents() {
