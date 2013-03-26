@@ -10,7 +10,5 @@ float rand(vec2 n) {
 }
 
 void main() {
-
 	gl_FragColor = texture2D(texture, gl_FragCoord.xy / resolution.xy);
-//	gl_FragColor =  vec4(rand(gl_FragCoord.xy + vec2(time, time * 2))) * 0.1 + texture2D(texture, gl_FragCoord.xy / vec2(1280, 720));
 }

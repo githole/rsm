@@ -17,10 +17,6 @@ uniform sampler2D vplTexture;
 uniform sampler2D vplPosTexture;
 uniform sampler2D vplNormalTexture;
 
-float rand(vec2 n) {
-  return 0.5 + 0.5 * 
-     fract(sin(dot(n.xy, vec2(12.9898, 78.233)))* 43758.5453);
-}
 
 float RND_1d(vec2 x)
 {
@@ -52,7 +48,7 @@ void main() {
 	vec4 indc;
 	float rm = 0.1;
 	vec2 seed = vec2(vWorldPosition.x + vWorldPosition.y, vWorldPosition.y + vWorldPosition.z);
-//	vec2 seed;
+
 	float gzi1, gzi2;
 	for (int i = 0; i < 64; i ++) {
 		gzi1 = RND_1d(seed + vec2(gzi1 + i, gzi2 + i));
@@ -65,34 +61,9 @@ void main() {
 
 		vec4 L = normalize(vplPos - vWorldPosition);
 		vec4 c = (vColor / 3.14159) * max(0.0, dot(worldNormal, L)) * step(0.0, -dot(worldNormal, vplNormal)) * vpl;
-//		vec4 c = (vColor / 3.14159) * max(0.0, dot(worldNormal, L)) * (dot(worldNormal, vplNormal) <= 0.0 ? 1.0 : 0.0) * vpl;
-//		indc = dot(worldNormal, vplNormal) < 0.0 ? vec4(1.0): vec4(0.0);
-//		break;
 
-//		indc = indc + vpl / 64;
 		indc = indc + (gzi1 * gzi1) * c * (4.0 * 3.14159) / 64.0;
 	}
-/*
-	vec4 indc;
-	float rm = 0.1;
-	vec2 seed = vec2(vWorldPosition.x + vWorldPosition.y, vWorldPosition.y + vWorldPosition.z);
-//	vec2 seed;
-	float gzi1, gzi2;
-	for (int i = 0; i < 32; i ++) {
-		for (int j = 0; j < 32; j ++) {	
-			vec2 sample = vec2(i, j) / 32.0;
-			vec4 vpl = texture2D(vplTexture, sample);
-			vec4 vplPos = texture2D(vplPosTexture, sample);
-			vec4 vplNormal = texture2D(vplNormalTexture, sample);
-
-			vec4 L = normalize(vplPos - vWorldPosition);
-			vec4 c = (vColor / 3.14159) * max(0.0, dot(worldNormal, L)) * step(0.0, -dot(worldNormal, vplNormal)) * vpl;
-	//		vec4 c = (vColor / 3.14159) * max(0.0, dot(worldNormal, L)) * (dot(worldNormal, vplNormal) <= 0.0 ? 1.0 : 0.0) * vpl;
-
-			indc = indc + c * (2.0 * 3.14159) / (32 * 32);
-		}
-	}*/
-
 
 	gl_FragColor = indc;
 }
