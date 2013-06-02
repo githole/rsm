@@ -45,7 +45,7 @@ void main() {
 
 	// やばい
 	
-	vec4 indc;
+	vec4 indc = vec4(0.0, 0.0, 0.0, 0.0);
 	float rm = 0.1;
 	vec2 seed = vec2(vWorldPosition.x + vWorldPosition.y, vWorldPosition.y + vWorldPosition.z);
 
